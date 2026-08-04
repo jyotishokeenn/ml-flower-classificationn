@@ -3,10 +3,15 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-import os
+
 import streamlit as st
 from sklearn.datasets import load_iris
 import pickle
+
+import os
+
+st.write("Current Directory:", os.getcwd())
+st.write("Files in Directory:", os.listdir())
 
 # LOAD DATASET
 data = load_iris()
@@ -25,12 +30,32 @@ all_model_name = ['Logistic Regression',
 
 
 
+# MODEL_LIST
+all_model_name = [
+    'Logistic Regression',
+    'Naive Bayes',
+    'Decision Tree',
+    'Random Forest',
+    'SVM',
+    'KNN'
+]
+
+# Get the directory where app.py is located
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+st.write("Current Directory:", os.getcwd())
+st.write("Files Found:", os.listdir(BASE_DIR))
+
 all_models = []
-for i in all_model_name:
-    file_name = i+'.pkl'
-    with open(f"{file_name}", 'rb') as f:
-        model = pickle.load(f)
-        all_models.append(model)
+
+for model_name in all_model_name:
+    file_path = os.path.join(BASE_DIR, f"{model_name}.pkl")
+
+    if os.path.exists(file_path):
+        with open(file_path, "rb") as f:
+            model = pickle.load(f)
+            all_models.append(model)
+    else:
+        st.error(f"Model file not found: {file_path}")
 
 # USER INPUT AND PAGE TITLE
 st.title("ML Flower Classification Project")
