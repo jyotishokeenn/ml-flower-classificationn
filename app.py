@@ -25,7 +25,7 @@ X = df.iloc[:,:-1]
 # MODEL_LIST
 all_model_name = ['Logistic Regression',
                  'Naive Bayes',"Decision Tree",
-                 "Random Forest","SVM",
+                 "SVM",
                  "KNN"]
 
 
@@ -35,7 +35,6 @@ all_model_name = [
     'Logistic Regression',
     'Naive Bayes',
     'Decision Tree',
-    'Random Forest',
     'SVM',
     'KNN'
 ]
@@ -101,7 +100,7 @@ if st.button("Click here to Predict"):
             model_prob.append(prob)
             class_ans = classes[ans]
             model_ans.append(class_ans)
-            # st.write(f"Prediction by: {all_model_name[counter]}===>{class_ans}")
+           
             counter += 1
 
         st.markdown("""
