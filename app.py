@@ -25,7 +25,7 @@ X = df.iloc[:,:-1]
 # MODEL_LIST
 all_model_name = ['Logistic Regression',
                  'Naive Bayes',"Decision Tree",
-                 "SVM",
+                 "Random Forest","SVM",
                  "KNN"]
 
 
@@ -35,6 +35,7 @@ all_model_name = [
     'Logistic Regression',
     'Naive Bayes',
     'Decision Tree',
+    'Random Forest',
     'SVM',
     'KNN'
 ]
