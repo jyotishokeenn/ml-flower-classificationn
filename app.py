@@ -28,7 +28,7 @@ all_model_name = ['Logistic Regression',
 all_models = []
 for i in all_model_name:
     file_name = i+'.pkl'
-    with open(f"{'Random Forest.pkl'}", 'rb') as f:
+    with open(f"{file_name}", 'rb') as f:
         model = pickle.load(f)
         all_models.append(model)
 
